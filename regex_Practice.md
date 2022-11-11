@@ -91,15 +91,40 @@ Expression flags change how the expression is interpreted. Flags follow the clos
 * `(?:ABC)` Groups multiple tokens together without creating a capture group.
 
 ### Bracket Expressions
+* A bracket expression (an expression enclosed in square brackets, "[ ]" ) is an RE that shall match a specific set of single characters, and may match a specific set of multi-character collating elements, based on the non-empty set of list expressions contained in the bracket expression.
 
 ### Greedy and Lazy Match
+* Greedy matches the longest possible string.
+    A Greedy quantifier tells the engine to match as many instances of its quantified token or subpattern as possible. This behavior is called greedy. In the greedy mode (by default) a quantified character is repeated as many times as possible.
+
+* 'Lazy' means matching the shortest possible string.
+    A lazy quantifier tells the engine to match as few of the quantified tokens as needed. Laziness is only enabled for the quantifier with ?.
 
 ### Boundaries
+* The `\b` is an anchor like the caret `^` and the dollar sign `$`. It matches a position that is called a “word boundary”. The word boundary match is zero-length.
+
+* Exactly which characters are word characters depends on the regex flavor you’re working with. In most flavors, characters that are matched by the short-hand character class `\w` are the characters that are treated as word characters by word boundaries. Java is an exception. Java supports Unicode for `\b` but not for `\w`.
+
+*  Since digits are considered to be word characters, `\b4\b` can be used to match a 4 that is not part of a larger number. This regex does not match 44 sheets of a4. So saying “`\b` matches before and after an alphanumeric sequence” is more exact than saying “before and after a word”.
 
 ### Back-references
+* Backreferences match the same text as previously matched by a capturing group. Suppose you want to match a pair of opening and closing HTML tags, and the text in between. By putting the opening tag into a backreference, we can reuse the name of the tag for the closing tag.
 
 ### Look-ahead and Look-behind
+* `(?=ABC)` is a lookahead and it asserts that what immediately follows the current position in the string is ABC
+* `(?!ABC)` is a negative lookahead and it asserts that what immediately follows the current position in the string is not ABC
+
+* `(?<=ABC>)` is a lookbehind and asserts that what immediately precedes the current position in the string is ABC
+* `(?<!ABC)` is a negative lookbehind and asserts that what immediately precedes the current position in the string is not ABC
+
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Jongwon (Michael) Choi, current Columbia University Coding Boot Camp Student.
+
+Github URL: [https://github.com/](https://github.com/)
+
+* Reference
+    * [https://regexr.com/](https://regexr.com/)
+    * [https://www.rexegg.com/](https://www.rexegg.com/)
+    * [https://www.regular-expressions.info/tutorialcnt.html](https://www.regular-expressions.info/tutorialcnt.html)
