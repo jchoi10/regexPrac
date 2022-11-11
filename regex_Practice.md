@@ -85,6 +85,10 @@ Expression flags change how the expression is interpreted. Flags follow the clos
 * `s` Dot (.) will match any character, including newline.
 
 ### Grouping and Capturing
+* `(ABC)` Capturing groups multiple tokens together and creates a capture group for extracting a substring or using a backreference.
+* `(?<name>ABC)` Creates a capturing group that can be referenced via the specified name.
+* `\1` Matches the results of a capture group. 
+* `(?:ABC)` Groups multiple tokens together without creating a capture group.
 
 ### Bracket Expressions
 
